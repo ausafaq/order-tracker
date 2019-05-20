@@ -13,5 +13,7 @@
 
 Route::get('/', 'LineController@index_redirect');
 
-Route::resource('lines', 'LineController');
-Route::resource('items', 'ItemController');
+Route::resource('lines', 'LineController')
+    ->except(['edit', 'update']);
+Route::resource('items', 'ItemController')
+    ->except(['index', 'show', 'destroy']);
