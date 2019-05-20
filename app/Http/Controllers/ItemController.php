@@ -87,6 +87,11 @@ class ItemController extends Controller
 
     public function received(Line $line, Item $item)
     {
-      //
+      if ($item->state = "ordered";) {
+        $item->state = "received";
+        $item->save();
+      } else {
+        throw new Exception("Item is in the wrong state for this operation.");
+      }
     }
 }
