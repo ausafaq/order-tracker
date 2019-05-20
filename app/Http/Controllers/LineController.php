@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Line;
 
 class LineController extends Controller
 {
@@ -77,9 +78,11 @@ class LineController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Line $line)
     {
-        //
+        Line::find($line->id)->delete();
+
+        return redirect('/lines');
     }
 
     public function index_redirect()
