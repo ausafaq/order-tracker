@@ -27,7 +27,7 @@ class LineController extends Controller
      */
     public function create()
     {
-        //
+      return view('create-line');
     }
 
     /**
