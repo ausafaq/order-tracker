@@ -77,7 +77,7 @@ class ItemController extends Controller
 
     public function ordered(Line $line, Item $item)
     {
-      if ($item->state = "unordered";) {
+      if ($item->state = "unordered") {
         $item->state = "ordered";
         $item->save();
       } else {
@@ -87,7 +87,7 @@ class ItemController extends Controller
 
     public function received(Line $line, Item $item)
     {
-      if ($item->state = "ordered";) {
+      if ($item->state = "ordered") {
         $item->state = "received";
         $item->save();
       } else {
