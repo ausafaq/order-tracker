@@ -13,9 +13,9 @@ class ItemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Line $line)
     {
-        //
+        return view('create-item')->with('line', $line);
     }
 
     /**
