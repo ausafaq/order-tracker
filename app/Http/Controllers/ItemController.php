@@ -65,4 +65,14 @@ class ItemController extends Controller
     {
         //
     }
+
+    public function ordered(Line $line, Item $item)
+    {
+      //
+    }
+
+    public function received(Line $line, Item $item)
+    {
+      //
+    }
 }
