@@ -14,7 +14,7 @@ class CreateLinesTable extends Migration
     public function up()
     {
         Schema::create('lines', function (Blueprint $table) {
-            $table->bigIncrements('id')->primary();
+            $table->bigIncrements('id');
             $table->timestamps();
             $table->string('name');
         });
