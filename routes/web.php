@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'LineController@index');
+Route::get('/', 'LineController@index_redirect');
 
 Route::resource('lines', 'LineController');
 Route::resource('items', 'ItemController');

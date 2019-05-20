@@ -81,4 +81,9 @@ class LineController extends Controller
     {
         //
     }
+
+    public function index_redirect()
+    {
+      return redirect('/lines');
+    }
 }
