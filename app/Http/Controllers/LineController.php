@@ -38,7 +38,17 @@ class LineController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      request()->validate(
+        [
+          'name'=>['required','min:6']
+        ]
+      );
+
+      $line = new Line();
+      $line->name = request('name');
+      $line->save();
+
+      return redirect('lines');
     }
 
     /**
