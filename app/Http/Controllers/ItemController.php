@@ -61,9 +61,18 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Line $line, Item $item)
     {
-        //
+      request()->validate(
+        [
+          'title'=>['required','min:1'],
+          'ordered_by'=>['required']
+        ]
+      );
+
+      $item->title = request('title');
+      $item->ordered_by = request('ordered_by');
+      $item->save();
     }
 
     public function ordered(Line $line, Item $item)
