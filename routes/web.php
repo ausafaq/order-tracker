@@ -19,3 +19,6 @@ Route::resource('items', 'ItemController')
     ->except(['index', 'create', 'store', 'show', 'edit', 'update']);
 Route::resource('lines.items', 'ItemController')
     ->except(['index', 'show']);
+
+Route::post('lines/{line}/items/{item}/ordered', 'ItemController@ordered');
+Route::post('lines/{line}/items/{item}/received', 'ItemController@received');
