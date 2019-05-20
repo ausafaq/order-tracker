@@ -77,7 +77,12 @@ class ItemController extends Controller
 
     public function ordered(Line $line, Item $item)
     {
-      //
+      if ($item->state = "unordered";) {
+        $item->state = "ordered";
+        $item->save();
+      } else {
+        throw new Exception("Item is in the wrong state for this operation.");
+      }
     }
 
     public function received(Line $line, Item $item)
