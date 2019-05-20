@@ -64,6 +64,7 @@ class LineController extends Controller
      */
     public function destroy(Line $line)
     {
+        Item::where('line', $line->id)->delete();
         Line::find($line->id)->delete();
 
         return redirect('/lines');
