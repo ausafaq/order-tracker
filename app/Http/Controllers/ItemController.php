@@ -49,9 +49,9 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Line $line, Item $item)
     {
-        //
+      return view('edit-item')->with('line', $line)->with('item', $item);
     }
 
     /**
