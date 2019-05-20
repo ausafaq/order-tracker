@@ -73,6 +73,8 @@ class ItemController extends Controller
       $item->title = request('title');
       $item->ordered_by = request('ordered_by');
       $item->save();
+      
+      return redirect("/lines/$line->id");
     }
 
     public function ordered(Line $line, Item $item)
@@ -80,6 +82,9 @@ class ItemController extends Controller
       if ($item->state = "unordered") {
         $item->state = "ordered";
         $item->save();
+
+        return redirect("/lines/$line->id");
+
       } else {
         throw new Exception("Item is in the wrong state for this operation.");
       }
@@ -90,6 +95,9 @@ class ItemController extends Controller
       if ($item->state = "ordered") {
         $item->state = "received";
         $item->save();
+
+        return redirect("/lines/$line->id");
+
       } else {
         throw new Exception("Item is in the wrong state for this operation.");
       }
