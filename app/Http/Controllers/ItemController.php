@@ -24,9 +24,23 @@ class ItemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Line $line)
     {
-        //
+      request()->validate(
+        [
+          'title'=>['required','min:1'],
+          'ordered_by'=>['required']
+        ]
+      );
+
+      $item = new Item();
+      $item->title = request('title');
+      $item->line = $line->id;
+      $item->ordered_by = request('ordered_by');
+      $item->state = "unordered";
+      $item->save();
+
+      return redirect('lines');
     }
 
     /**
