@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Line;
+use App\Item;
 
 class ItemController extends Controller
 {
