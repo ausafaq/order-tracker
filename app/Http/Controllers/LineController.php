@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Line;
+use App\Item;
 
 class LineController extends Controller
 {
@@ -46,9 +47,13 @@ class LineController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Line $line)
     {
-        //
+      $items = Item::where('line', $line->id)
+        ->orderBy('created_at', 'desc')
+        ->get();
+
+      return view('items')->with('items', $items);
     }
 
     /**
