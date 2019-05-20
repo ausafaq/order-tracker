@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('lines');
-});
+Route::get('/', 'LineController@index');
+
+Route::resource('lines', 'LineController');
+Route::resource('items', 'ItemController');
