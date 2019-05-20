@@ -15,7 +15,7 @@ class LineController extends Controller
      */
     public function index()
     {
-        $lines = Line::all()->orderBy('created_at', 'desc')->get();
+        $lines = Line::orderBy('created_at', 'desc')->get();
 
         return view('lines')->with('lines', $lines);
     }
