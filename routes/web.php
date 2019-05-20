@@ -16,4 +16,6 @@ Route::get('/', 'LineController@index_redirect');
 Route::resource('lines', 'LineController')
     ->except(['edit', 'update']);
 Route::resource('items', 'ItemController')
-    ->except(['index', 'show', 'destroy']);
+    ->except(['index', 'create', 'store', 'show', 'edit', 'update']);
+Route::resource('lines.items', 'ItemController')
+    ->except(['index', 'show']);
