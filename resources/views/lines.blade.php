@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-  <div>
+  <div class="content">
       <div class="title">
         <h1>Product lines</h1>
       </div>
