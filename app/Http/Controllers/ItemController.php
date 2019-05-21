@@ -71,7 +71,7 @@ class ItemController extends Controller
       );
 
       $item->title = request('title');
-      $item->ordered_by = request('ordered_by');
+      $item->ordered_by = json_encode(request('ordered_by'));
       $item->save();
 
       return redirect("/lines/$line->id");
