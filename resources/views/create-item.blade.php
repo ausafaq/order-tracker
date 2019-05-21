@@ -25,7 +25,7 @@
         <input type="text" name="title" placeholder="item title" required>
       </div>
       <div>
-        Product line name: <br>
+        Ordered by: <br>
         <input type="textarea" name="ordered_by" value="[]" required>
         <br>
         Enter as a comma-separated list enclosed with [].
