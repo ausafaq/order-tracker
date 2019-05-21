@@ -36,7 +36,7 @@ class ItemController extends Controller
       $item = new Item();
       $item->title = request('title');
       $item->line = $line->id;
-      $item->ordered_by = request('ordered_by');
+      $item->ordered_by = json_encode(request('ordered_by'));
       $item->state = "unordered";
       $item->save();
 
@@ -71,15 +71,20 @@ class ItemController extends Controller
       );
 
       $item->title = request('title');
-      $item->ordered_by = request('ordered_by');
+      $item->ordered_by = json_encode(request('ordered_by'));
       $item->save();
+
+      return redirect("/lines/$line->id");
     }
 
     public function ordered(Line $line, Item $item)
     {
-      if ($item->state = "unordered";) {
+      if ($item->state = "unordered") {
         $item->state = "ordered";
         $item->save();
+
+        return redirect("/lines/$line->id");
+
       } else {
         throw new Exception("Item is in the wrong state for this operation.");
       }
@@ -87,9 +92,12 @@ class ItemController extends Controller
 
     public function received(Line $line, Item $item)
     {
-      if ($item->state = "ordered";) {
+      if ($item->state = "ordered") {
         $item->state = "received";
         $item->save();
+
+        return redirect("/lines/$line->id");
+
       } else {
         throw new Exception("Item is in the wrong state for this operation.");
       }

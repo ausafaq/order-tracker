@@ -63,7 +63,7 @@ class LineController extends Controller
         ->orderBy('created_at', 'desc')
         ->get();
 
-      return view('items')->with('items', $items);
+      return view('items')->with('line', $line)->with('items', $items);
     }
 
     /**
