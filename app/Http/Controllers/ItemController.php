@@ -36,11 +36,11 @@ class ItemController extends Controller
       $item = new Item();
       $item->title = request('title');
       $item->line = $line->id;
-      $item->ordered_by = json_encode(request('ordered_by'));
+      $item->ordered_by = request('ordered_by');
       $item->state = "unordered";
       $item->save();
 
-      return redirect('lines');
+      return redirect("lines/$line->id");
     }
 
     /**
@@ -71,7 +71,7 @@ class ItemController extends Controller
       );
 
       $item->title = request('title');
-      $item->ordered_by = json_encode(request('ordered_by'));
+      $item->ordered_by = request('ordered_by');
       $item->save();
 
       return redirect("/lines/$line->id");
@@ -101,5 +101,34 @@ class ItemController extends Controller
       } else {
         throw new Exception("Item is in the wrong state for this operation.");
       }
+    }
+
+    public function index()
+    {
+      if (request('state')) {
+        $items = Item::orderBy('created_at', 'desc')
+          ->where('state', request('state'))
+          ->join('lines', 'items.line', '=', 'lines.id')
+          ->select('items.*', 'lines.name')
+          ->get();
+      } else {
+        $items = Item::orderBy('created_at', 'desc')
+          ->join('lines', 'items.line', '=', 'lines.id')
+          ->select('items.*', 'lines.name')
+          ->get();
+      }
+
+
+
+      return view('all-items')
+        ->with('items', $items)
+        ->with('state', request('state'));
+    }
+
+    public function destroy(Line $line, Item $item)
+    {
+      Item::find($item->id)->delete();
+
+      return redirect("/lines/$line->id");
     }
 }

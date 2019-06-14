@@ -66,12 +66,24 @@
     <body>
       <div class="top-left links">
         <a href="/lines">List of product lines</a>
+        <br>
+        <a href="/items">List of all items</a>
+        <br>
+        <a href="/items?state=unordered">List of all unordered items</a>
+        <br>
+        <a href="/items?state=ordered">List of all ordered items</a>
+        <br>
+        <a href="/items?state=received">List of all received items</a>
       </div>
-      
+
       <div class="flex-center position-ref full-height">
           <div class="content">
               @yield('content')
           </div>
+      </div>
+
+      <div class="bottom-left links">
+        <a href="/line-deletion">Delete a product line</a>
       </div>
     </body>
 </html>

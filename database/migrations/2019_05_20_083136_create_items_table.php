@@ -18,7 +18,7 @@ class CreateItemsTable extends Migration
             $table->timestamps();
             $table->string('title');
             $table->unsignedBigInteger('line');
-            $table->json('ordered_by');
+            $table->string('ordered_by');
             $table->string('state');
         });
     }

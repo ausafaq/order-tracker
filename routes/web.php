@@ -16,9 +16,11 @@ Route::get('/', 'LineController@index_redirect');
 Route::resource('lines', 'LineController')
     ->except(['edit', 'update']);
 Route::resource('items', 'ItemController')
-    ->except(['index', 'create', 'store', 'show', 'edit', 'update']);
+    ->except(['create', 'store', 'show', 'edit', 'update']);
 Route::resource('lines.items', 'ItemController')
     ->except(['index', 'show']);
+
+Route::get('line-deletion', 'LineController@deletion');
 
 Route::post('lines/{line}/items/{item}/ordered', 'ItemController@ordered');
 Route::post('lines/{line}/items/{item}/received', 'ItemController@received');

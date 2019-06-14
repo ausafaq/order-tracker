@@ -26,15 +26,14 @@
       </div>
       <div>
         Ordered by: <br>
-        <input type="textarea" name="ordered_by" value="[]" required>
+        <input type="textarea" name="ordered_by" value="" required>
         <br>
-        Enter as a comma-separated list enclosed with [].
       </div>
 
       <br>
 
       <div>
-        <button type="submit">Add Product Line</button>
+        <button type="submit">Add Item to Line</button>
       </div>
     </form>
   </div>

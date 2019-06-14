@@ -29,7 +29,6 @@
         Ordered by: <br>
         <input type="textarea" name="ordered_by" value="{{$item->ordered_by}}" required>
         <br>
-        Enter as a comma-separated list enclosed with [].
       </div>
 
       <br>
@@ -38,5 +37,15 @@
         <button type="submit">Edit {{$item->title}}</button>
       </div>
     </form>
+
+    <br><br>
+
+    <div>
+      <form method="POST" action={{"/lines/$line->id/items/$item->id"}}>
+        @method('DELETE')
+        {{ csrf_field() }}
+        <button type="submit" class="button">Delete Item</button>
+      </form>
+    </div>
   </div>
 @endsection
