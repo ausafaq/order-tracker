@@ -40,7 +40,7 @@ class ItemController extends Controller
       $item->state = "unordered";
       $item->save();
 
-      return redirect('lines');
+      return redirect("lines/$line->id");
     }
 
     /**
