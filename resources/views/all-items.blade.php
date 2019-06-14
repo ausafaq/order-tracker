@@ -7,7 +7,7 @@
 @section('content')
   <div class="content">
       <div class="title">
-        <h1>All items</h1>
+        <h1>All {{$state}} items</h1>
       </div>
 
       @if ($items->count())
