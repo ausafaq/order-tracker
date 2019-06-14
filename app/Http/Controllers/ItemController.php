@@ -112,4 +112,11 @@ class ItemController extends Controller
 
       return view('all-items')->with('items', $items);
     }
+
+    public function destroy(Line $line, Item $item)
+    {
+      Item::find($item->id)->delete();
+
+      return redirect("/lines/$line->id");
+    }
 }
