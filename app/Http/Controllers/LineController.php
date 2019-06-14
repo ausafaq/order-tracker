@@ -66,6 +66,13 @@ class LineController extends Controller
       return view('items')->with('line', $line)->with('items', $items);
     }
 
+    public function deletion()
+    {
+      $lines = Line::orderBy('created_at', 'desc')->get();
+
+      return view('delete-line')->with('lines', $lines);
+    }
+
     /**
      * Remove the specified resource from storage.
      *
