@@ -66,8 +66,12 @@
     <body>
       <div class="top-left links">
         <a href="/lines">List of product lines</a>
+
+        <br>
+
+        <a href="/items">List of all items</a>
       </div>
-      
+
       <div class="flex-center position-ref full-height">
           <div class="content">
               @yield('content')
