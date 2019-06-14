@@ -120,7 +120,9 @@ class ItemController extends Controller
 
 
 
-      return view('all-items')->with('items', $items);
+      return view('all-items')
+        ->with('items', $items)
+        ->with('state', request('state'));
     }
 
     public function destroy(Line $line, Item $item)
