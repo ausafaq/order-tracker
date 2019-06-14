@@ -38,5 +38,15 @@
         <button type="submit">Edit {{$item->title}}</button>
       </div>
     </form>
+
+    <br><br>
+
+    <div>
+      <form method="POST" action={{"/lines/$line->id/items/$item->id"}}>
+        @method('DELETE')
+        {{ csrf_field() }}
+        <button type="submit" class="button">Delete Item</button>
+      </form>
+    </div>
   </div>
 @endsection
