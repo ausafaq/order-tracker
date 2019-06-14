@@ -20,18 +20,23 @@
             <li>
               <h2><a href={{"/lines/$line->id/items/$item->id/edit"}}>{{$item->title}}</a></h2>
               Ordered by: {{$item->ordered_by}}
-              <br>
-              State: {{$item->state}}
-              @if ($item->state == "unordered")
+                @if ($item->state == "unordered")
+                <br>
+                <p style="color:#EA360F";><b>State: {{$item->state}}</b></p>
                 <form method="POST" action={{"/lines/$line->id/items/$item->id/ordered"}}>
                   {{ csrf_field() }}
                   <button type="submit">Item ordered</button>
                 </form>
               @elseif ($item->state == "ordered")
+                <br>
+                <p style="color:#E1EC06";><b>State: {{$item->state}}</b></p>
                 <form method="POST" action={{"/lines/$line->id/items/$item->id/received"}}>
                   {{ csrf_field() }}
                   <button type="submit">Item received</button>
                 </form>
+              @else
+                <br>
+                <p style="color:#14EC06";><b>State: {{$item->state}}</b></p>
               @endif
             </li>
           @endforeach
