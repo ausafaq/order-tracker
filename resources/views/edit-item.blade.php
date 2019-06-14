@@ -29,7 +29,6 @@
         Ordered by: <br>
         <input type="textarea" name="ordered_by" value="{{$item->ordered_by}}" required>
         <br>
-        Enter as a comma-separated list enclosed with [].
       </div>
 
       <br>
