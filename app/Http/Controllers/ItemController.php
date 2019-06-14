@@ -105,10 +105,20 @@ class ItemController extends Controller
 
     public function index()
     {
-      $items = Item::orderBy('created_at', 'desc')
-        ->join('lines', 'items.line', '=', 'lines.id')
-        ->select('items.*', 'lines.name')
-        ->get();
+      if (request('state')) {
+        $items = Item::orderBy('created_at', 'desc')
+          ->where('state', request('state'))
+          ->join('lines', 'items.line', '=', 'lines.id')
+          ->select('items.*', 'lines.name')
+          ->get();
+      } else {
+        $items = Item::orderBy('created_at', 'desc')
+          ->join('lines', 'items.line', '=', 'lines.id')
+          ->select('items.*', 'lines.name')
+          ->get();
+      }
+
+
 
       return view('all-items')->with('items', $items);
     }
