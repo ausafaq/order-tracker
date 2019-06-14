@@ -81,5 +81,9 @@
               @yield('content')
           </div>
       </div>
+
+      <div class="bottom-left links">
+        <a href="/line-deletion">Delete a product line</a>
+      </div>
     </body>
 </html>
