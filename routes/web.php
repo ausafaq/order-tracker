@@ -20,5 +20,7 @@ Route::resource('items', 'ItemController')
 Route::resource('lines.items', 'ItemController')
     ->except(['index', 'show']);
 
+Route::get('line-deletion', 'LineController@deletion');
+
 Route::post('lines/{line}/items/{item}/ordered', 'ItemController@ordered');
 Route::post('lines/{line}/items/{item}/received', 'ItemController@received');
