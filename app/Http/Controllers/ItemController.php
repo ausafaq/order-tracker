@@ -102,4 +102,14 @@ class ItemController extends Controller
         throw new Exception("Item is in the wrong state for this operation.");
       }
     }
+
+    public function index()
+    {
+      $items = Item::orderBy('created_at', 'desc')
+        ->join('lines', 'items.line', '=', 'lines.id')
+        ->select('items.*', 'lines.name')
+        ->get();
+
+      return view('all-items')->with('items', $items);
+    }
 }
